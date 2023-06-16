@@ -1,4 +1,4 @@
-,Brown dwarf,Constellation,Right ascension,Declination,App. mag.,Distance (ly),Spectral type,Mass (MJ),Radius (RJ),Discovery year
+id,Star_name,Constellation,Right ascension,Declination,App. mag.,Distance,Spectral type,Mass,Radius,Discovery year
 0,SDSS J000013.54+255418.6 [de],Pegasus,0h 0m 13.54s,25° 54′ 18″,,46.1,T4.5,48.0,0.99,2004.0
 1,2MASS J00040288-6410358,Tucana,0h 4m 2.88s,−64° 10′ 35.8″,,192.0,L1γ,19.0,1.63,
 2,LHS 102BC,Phoenix,0h 4m 34.84s,−40° 44′ 5.8″,,,L5,,,2002.0
