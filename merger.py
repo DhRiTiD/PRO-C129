@@ -1,32 +1,25 @@
 import csv
 
-dataset_1 = []
-dataset_2 = []
+import pandas as pd
 
-with open("stars_data.csv", "r") as f:
-    csvreader = csv.reader(f)
-    for row in csvreader: 
-        dataset_1.append(row)
+df1 = pd.read_csv('brown_planet_data.csv')
+df2 = pd.read_csv('stars_data.csv')
 
-with open("brown_planet_data.csv", "r") as f:
-    csvreader = csv.reader(f)
-    for row in csvreader: 
-        dataset_2.append(row)
+headers = ['Star_name','Distance','Mass','Radius']
 
-headers_1 = dataset_1[0][:5]
-planet_data_1 = dataset_1[1:]
+df1_clean = pd.DataFrame()
+df2_clean = pd.DataFrame()
 
-headers_2 = dataset_2[0]
-planet_data_2 = dataset_2[1:]
+for header in headers:
+    df1_clean[header] = df1[header]
+    df2_clean[header] = df2[header]
 
-headers = headers_1 + headers_2
-planet_data = []
-for index, data_row in enumerate(planet_data_1):
-    planet_data.append(planet_data_1[index] + planet_data_2[index])
+df1_clean = df1_clean.dropna()
+df2_clean = df2_clean.dropna()
 
-with open("final.csv", "a+") as f:
-    csvwriter = csv.writer(f)
-    csvwriter.writerow(headers)
-    csvwriter.writerows(planet_data)
+print(df1_clean.head())
+print(df2_clean.head())
 
-    
+result = pd.concat([df1_clean, df2_clean])
+
+result.to_csv('final.csv', index=False)
